@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { colorByType } from "../constants/colorsType";
 
-export const PokemonPreview = ({ pokemonURL }) => {
+export const PokemonPreview = ({ pokemonURL, onClick }) => {
   const [pokemon, setPokemon] = useState(null);
 
   const getPokemonsUrl = async () => {
@@ -9,7 +9,6 @@ export const PokemonPreview = ({ pokemonURL }) => {
       const response = await fetch(pokemonURL);
       const data = await response.json();
       setPokemon(data);
-      console.log(data);
     } catch (error) {
       console.error(error);
     }
@@ -22,7 +21,7 @@ export const PokemonPreview = ({ pokemonURL }) => {
  
 
   return (
-    <article className="text-center bg-white rounded-[30px] relative font-semibold capitalize shadow-lg shadow-slate-400/15 border-transparent border-solid border-2 hover:border-slate-300 cursor-pointer">
+    <article onClick={onClick} className="text-center bg-white rounded-[30px] relative font-semibold capitalize shadow-lg shadow-slate-400/15 border-transparent border-solid border-2 hover:border-slate-300 cursor-pointer">
       <header className="h-10">
         <img
           className="absolute left-1/3 -top-[28%] pixelated"
