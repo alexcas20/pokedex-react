@@ -7,14 +7,16 @@ export const PokemonProvider = ({children}) => {
 
     const [showDetailPokemon, setShowDetailPokemon] = useState(false);
 
-    const showPokemonById = () => {
+    const showPokemon = () => {
         setShowDetailPokemon(!showDetailPokemon)
+        console.log(showDetailPokemon)
     }
+  
 
   
 
     return (
-        <PokemonContext.Provider value={{showDetailPokemon , showPokemonById}}>
+        <PokemonContext.Provider value={{showDetailPokemon , showPokemon}}>
             { children }
         </PokemonContext.Provider>
 
