@@ -23,7 +23,7 @@ export const Pokemons = () => {
     pokemon.name.includes(pokemonName)
   );
 
-  console.log(pokemonsByName);
+  
 
   const handleChangePokemonName = (e) => {
     setPokemonName(e.target.value);
@@ -35,7 +35,6 @@ export const Pokemons = () => {
         `https://pokeapi.co/api/v2/pokemon?limit=898`
       );
       const data = await response.json();
-      console.log(data.results);
       setAllPokemons(data.results);
     } catch (error) {
       console.error(error);
