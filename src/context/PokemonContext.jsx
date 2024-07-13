@@ -1,5 +1,12 @@
 import { createContext, useState } from "react";
-import { formatAbilities, formatStats, formatTypes, getEvolutions, getPokemonDescription } from "../helpers/pokemonHelper";
+import {
+  formatAbilities,
+  formatStats,
+  formatTypes,
+  getEvolutions,
+  getImageMainPokemon,
+  getPokemonDescription,
+} from "../helpers/pokemonHelper";
 
 export const PokemonContext = createContext();
 
@@ -12,34 +19,33 @@ export const PokemonProvider = ({ children }) => {
   // close modal
   const closeModal = () => {
     setShowDetailPokemon(false);
-  }
+  };
 
   const showPokemon = async (pokemon = "") => {
+    // fetch species
+    const response = await fetch(pokemon.species.url);
+    const dataSpecies = await response.json();
 
-        // fetch species
-        const response  = await fetch(pokemon.species.url);
-        const dataSpecies = await response.json();
-        console.log(dataSpecies)
+    //fetch evolutions
+    const resEv = await fetch(dataSpecies.evolution_chain.url);
+    const dataEvolution = await resEv.json();
 
-        //fetch evolutions
-        const resEv = await fetch(dataSpecies.evolution_chain.url);
-        const dataEvolution = await resEv.json();
-        console.log(dataEvolution)
-  
-  
+    const evolutions = await getEvolutions(dataEvolution);
+
     const { id, name, height, weight, stats, types, abilities } = pokemon;
     console.log({
-        id,
+      id,
       name,
       height,
       weight,
       stats: formatStats(stats),
       types: formatTypes(types),
-      abilities: formatAbilities(abilities), 
+      abilities: formatAbilities(abilities),
       description: getPokemonDescription(dataSpecies),
-      evolution: getEvolutions(dataEvolution)
+      evolutions,
+      image :getImageMainPokemon(pokemon.sprites)
 
-    })
+    });
 
     setPokemonInfo({
       id,
@@ -50,15 +56,17 @@ export const PokemonProvider = ({ children }) => {
       types: formatTypes(types),
       abilities: formatAbilities(abilities),
       description: getPokemonDescription(dataSpecies),
-      evolution: getEvolutions(dataEvolution)
+      evolutions,
+      image: getImageMainPokemon(pokemon.sprites)
     });
 
     setShowDetailPokemon(!showDetailPokemon);
-    console.log(showDetailPokemon);
   };
 
   return (
-    <PokemonContext.Provider value={{ showDetailPokemon, showPokemon, pokemonInfo, closeModal }}>
+    <PokemonContext.Provider
+      value={{ showDetailPokemon, showPokemon, pokemonInfo, closeModal }}
+    >
       {children}
     </PokemonContext.Provider>
   );

@@ -15,8 +15,8 @@ export const Pokemons = () => {
   const targetObserver = useRef(null);
   const entry = useIntersectionObs(targetObserver, {});
   const isVisible = !!entry?.isIntersecting;
-  console.log(isVisible);
-
+  
+  
   //filtrado
 
   const pokemonsByName = allPokemons.filter((pokemon) =>
