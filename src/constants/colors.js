@@ -20,3 +20,13 @@ export const colorByType = {
     unknown: "",
     shadow: "",
   };
+
+  export const colorByStat = {
+    HP: "[&>div]:bg-red-500 bg-slate-100",
+    ATK: "[&>div]:bg-orange-500 bg-slate-100",
+    DEF: "[&>div]:bg-yellow-500 bg-slate-100",
+    spA: "[&>div]:bg-blue-500 bg-slate-100",
+    spD: "[&>div]:bg-green-500 bg-slate-100",
+    SPD: "[&>div]:bg-pink-500 bg-slate-100",
+    TOT: "[&>div]:bg-blue-500 bg-blue-300",
+  };

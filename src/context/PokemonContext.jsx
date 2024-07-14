@@ -13,6 +13,9 @@ export const PokemonContext = createContext();
 export const PokemonProvider = ({ children }) => {
   const [showDetailPokemon, setShowDetailPokemon] = useState(false);
 
+  //Loading
+  const [isLoading, setIsLoading] = useState(false);
+
   // pokemon data to show modal
   const [pokemonInfo, setPokemonInfo] = useState(null);
 
@@ -22,6 +25,9 @@ export const PokemonProvider = ({ children }) => {
   };
 
   const showPokemon = async (pokemon = "") => {
+
+    setIsLoading(true);
+
     // fetch species
     const response = await fetch(pokemon.species.url);
     const dataSpecies = await response.json();
@@ -60,12 +66,17 @@ export const PokemonProvider = ({ children }) => {
       image: getImageMainPokemon(pokemon.sprites)
     });
     setShowDetailPokemon(true);
+
+    setTimeout(() => {
+      setIsLoading(false);
+    },200)
+    
   
   };
 
   return (
     <PokemonContext.Provider
-      value={{ showDetailPokemon, showPokemon, pokemonInfo, closeModal, setPokemonInfo }}
+      value={{ showDetailPokemon, showPokemon, pokemonInfo, closeModal, setPokemonInfo, isLoading }}
     >
       {children}
     </PokemonContext.Provider>
