@@ -32,7 +32,7 @@ export const ModalPokemon = ({ showModal, closeModal, pokemon }) => {
       </button>
 
       <article
-        className={`bg-white h-[85%] absolute w-full rounded-t-3xl rounded-tr-3xl text-center transition-all duration-500 grid  
+        className={`bg-white h-[85%] absolute w-full rounded-t-3xl rounded-tr-3xl text-center transition-all duration-500  
             ${
               showModal ? "bottom-0" : "-bottom-full"
             } `}
@@ -43,7 +43,7 @@ export const ModalPokemon = ({ showModal, closeModal, pokemon }) => {
 
 
         {/* Content to scroll */}
-        <div className=" px-4 pt-12 overflow-y-auto grid gap-2 content-start ">
+        <div className=" px-4 pt-12 overflow-y-auto grid gap-2 content-start h-full ">
         <span className="text-slate-400 text-sm font-semibold">
           N. {pokemon?.id}
         </span>
@@ -64,10 +64,11 @@ export const ModalPokemon = ({ showModal, closeModal, pokemon }) => {
         </div>
 
         {/* Height and Weight */}
+
         <section className="grid grid-cols-2 gap-4">
           <div className="grid gap-3">
             <h4 className="font-bold">Height:</h4>
-            <span className="bg-slate-100 block rounded-full p-1">{pokemon?.height}in</span>
+            <span className="bg-slate-100 block rounded-full p-1">{pokemon?.height}m</span>
           </div>
           <div className="grid gap-3">
             <h4 className="font-bold">Weight:</h4>

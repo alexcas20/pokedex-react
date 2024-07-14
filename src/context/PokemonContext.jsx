@@ -59,13 +59,13 @@ export const PokemonProvider = ({ children }) => {
       evolutions,
       image: getImageMainPokemon(pokemon.sprites)
     });
-
-    setShowDetailPokemon(!showDetailPokemon);
+    setShowDetailPokemon(true);
+  
   };
 
   return (
     <PokemonContext.Provider
-      value={{ showDetailPokemon, showPokemon, pokemonInfo, closeModal }}
+      value={{ showDetailPokemon, showPokemon, pokemonInfo, closeModal, setPokemonInfo }}
     >
       {children}
     </PokemonContext.Provider>

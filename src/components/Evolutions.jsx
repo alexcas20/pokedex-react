@@ -1,4 +1,10 @@
+import { useContext } from "react";
+import { PokemonContext } from "../context/PokemonContext";
+
 export const Evolutions = ({ evolutions }) => {
+
+  const {showPokemon} = useContext(PokemonContext);
+  
   return (
     <div className="flex justify-center items-center gap-2 flex-wrap">
       {evolutions.map((evolution, index) => (
@@ -9,7 +15,8 @@ export const Evolutions = ({ evolutions }) => {
             </div>
           )}
 
-          <button className="hover:bg-slate-100 transition-colors rounded-3xl">
+          <button className="hover:bg-slate-100 transition-colors rounded-3xl"
+           onClick={() => showPokemon(evolution?.pokemonInfo)}>
             <img src={evolution.image} alt={evolution.name} />
           </button>
         </article>
