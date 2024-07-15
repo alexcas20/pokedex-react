@@ -8,7 +8,7 @@ https://pokedex-jacs.netlify.app/
  <h3>Desktop</h3>
 <img width="932" alt="home" src="https://github.com/user-attachments/assets/d28ae318-172e-4dc7-8c63-b463e09352cc">
   <h3>Filter</h3>
-<img width="630" alt="filter" src="https://github.com/user-attachments/assets/4947ef2f-28fc-4fd4-9de5-ce650fea53f6">
+  <img width="935" alt="filter" src="https://github.com/user-attachments/assets/a97bbfed-2bff-49b0-add9-fdca48b99687">
  <h3>Pokemon Select</h3>
 <img width="935" alt="select" src="https://github.com/user-attachments/assets/3ce9d4e6-3cbd-49ed-9b5b-4624594f2cac">
  <h3>Mobile</h3>
