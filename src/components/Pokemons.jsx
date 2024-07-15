@@ -19,7 +19,7 @@ export const Pokemons = () => {
   //filtrado
 
   const pokemonsByName = allPokemons.filter((pokemon) =>
-    pokemon.name.includes(pokemonName)
+    pokemon.name.includes(pokemonName.toLowerCase())
   );
 
   const handleChangePokemonName = (e) => {
