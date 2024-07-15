@@ -12,7 +12,7 @@ https://pokedex-jacs.netlify.app/
  <h3>Pokemon Select</h3>
 <img width="935" alt="select" src="https://github.com/user-attachments/assets/3ce9d4e6-3cbd-49ed-9b5b-4624594f2cac">
  <h3>Mobile</h3>
- <div style="text-align: center">
+ <div style="display: flex">
    <img width="196" alt="mobile-home" src="https://github.com/user-attachments/assets/c6f7a873-f591-47ad-900d-4a3119a87b64">
    <img width="197" alt="mobile" src="https://github.com/user-attachments/assets/bae95de4-6919-4162-b6e2-a2befcc8bead">
  </div>
