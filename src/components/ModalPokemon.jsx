@@ -2,14 +2,7 @@ import { IconX } from "@tabler/icons-react";
 import { PokemonDetails } from "./PokemonDetails";
 import { colorByType } from "../constants/colors";
 
-
-
-
 export const ModalPokemon = ({ showModal, closeModal, pokemon }) => {
-  console.log(pokemon);
-
-  console.log("Mostrar modal => ", showModal);
-
   return (
     <section
       className={`fixed lg:hidden top-0 left-0 right-0 h-full transition-all duration-500 ${
@@ -26,11 +19,9 @@ export const ModalPokemon = ({ showModal, closeModal, pokemon }) => {
 
       <article
         className={`bg-white h-[85%] absolute w-full rounded-t-3xl rounded-tr-3xl text-center transition-all duration-500  
-            ${
-              showModal ? "bottom-0" : "-bottom-full"
-            } `}
+            ${showModal ? "bottom-0" : "-bottom-full"} `}
       >
-       <PokemonDetails pokemon={pokemon}/>
+        <PokemonDetails pokemon={pokemon} />
       </article>
     </section>
   );

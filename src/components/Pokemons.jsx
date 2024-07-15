@@ -15,15 +15,12 @@ export const Pokemons = () => {
   const targetObserver = useRef(null);
   const entry = useIntersectionObs(targetObserver, {});
   const isVisible = !!entry?.isIntersecting;
-  
-  
+
   //filtrado
 
   const pokemonsByName = allPokemons.filter((pokemon) =>
     pokemon.name.includes(pokemonName)
   );
-
-  
 
   const handleChangePokemonName = (e) => {
     setPokemonName(e.target.value);
@@ -48,7 +45,6 @@ export const Pokemons = () => {
   useEffect(() => {
     const maxPokemons = pokemonsByName.length;
     if (isVisible && maxPokemons !== 0) {
-      console.log(pokemonsByName);
       const newLimit = limit + INCRESE_LIMIT;
       newLimit > maxPokemons ? setLimit(maxPokemons) : setLimit(newLimit);
     }

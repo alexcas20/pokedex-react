@@ -38,14 +38,13 @@ export const getEvolutions = async (evolutionInfo) => {
 
     do{
         const evoDetails = evolutionData['evolution_details'][0];
-        console.log('inicio evoDetails => ', evoDetails);
         evolutions.push({
             name: evolutionData.species.name,
             min_level: evoDetails?.min_level ?? 1
         })
 
         evolutionData = evolutionData.evolves_to[0];
-        console.log('cambio evolucion data => ', evolutionData)
+     
     } while(evolutionData)
 
     const promises = getEvolutionsData(evolutions);

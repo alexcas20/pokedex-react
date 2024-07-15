@@ -25,7 +25,6 @@ export const PokemonProvider = ({ children }) => {
   };
 
   const showPokemon = async (pokemon = "") => {
-
     setIsLoading(true);
 
     // fetch species
@@ -39,19 +38,6 @@ export const PokemonProvider = ({ children }) => {
     const evolutions = await getEvolutions(dataEvolution);
 
     const { id, name, height, weight, stats, types, abilities } = pokemon;
-    console.log({
-      id,
-      name,
-      height,
-      weight,
-      stats: formatStats(stats),
-      types: formatTypes(types),
-      abilities: formatAbilities(abilities),
-      description: getPokemonDescription(dataSpecies),
-      evolutions,
-      image :getImageMainPokemon(pokemon.sprites)
-
-    });
 
     setPokemonInfo({
       id,
@@ -63,20 +49,25 @@ export const PokemonProvider = ({ children }) => {
       abilities: formatAbilities(abilities),
       description: getPokemonDescription(dataSpecies),
       evolutions,
-      image: getImageMainPokemon(pokemon.sprites)
+      image: getImageMainPokemon(pokemon.sprites),
     });
     setShowDetailPokemon(true);
 
     setTimeout(() => {
       setIsLoading(false);
-    },200)
-    
-  
+    }, 200);
   };
 
   return (
     <PokemonContext.Provider
-      value={{ showDetailPokemon, showPokemon, pokemonInfo, closeModal, setPokemonInfo, isLoading }}
+      value={{
+        showDetailPokemon,
+        showPokemon,
+        pokemonInfo,
+        closeModal,
+        setPokemonInfo,
+        isLoading,
+      }}
     >
       {children}
     </PokemonContext.Provider>
