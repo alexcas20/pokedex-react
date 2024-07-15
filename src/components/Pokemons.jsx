@@ -17,14 +17,14 @@ export const Pokemons = () => {
   const isVisible = !!entry?.isIntersecting;
 
   //filtrado
+  
+   const handleChangePokemonName = (e) => {
+    setPokemonName(e.target.value);
+  };
 
   const pokemonsByName = allPokemons.filter((pokemon) =>
     pokemon.name.includes(pokemonName.toLowerCase())
   );
-
-  const handleChangePokemonName = (e) => {
-    setPokemonName(e.target.value);
-  };
 
   const getPokemons = async () => {
     try {
