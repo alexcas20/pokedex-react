@@ -1,7 +1,6 @@
 import { PokemonDetails } from "./PokemonDetails"
 
 export const Aside = ({pokemon, isLoading}) => {
-  console.log(isLoading)
   return (
     <section className="hidden lg:block sticky top-0 h-screen overflow-x-hidden ">
      
