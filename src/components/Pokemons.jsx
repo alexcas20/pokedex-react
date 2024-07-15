@@ -56,7 +56,7 @@ export const Pokemons = () => {
   }, [pokemonName]);
 
   return (
-    <section className="p-4 py-5 h-full">
+    <section className="p-4 py-5 h-screen">
       <form>
         <div className="bg-white p-4 flex rounded-2xl text-lg">
           <input
